@@ -53,7 +53,7 @@ class App extends React.Component {
   }
 
   /*
-   * Advanced Method
+   *
    */
   /*_handleChangeState = event => {
     console.log("Event: ", event);
@@ -61,29 +61,11 @@ class App extends React.Component {
   }*/
 
   /*
-   * Create Function
+   *
    */
   _handleCreateContact = () => {
     console.log("name: ", this.state.name);
     console.log("phone: ", this.state.phone);
-
-    /*const newContact = this.state.contact;
-    newContact.push();*/
-
-    const lastIDIndex = this.state.contact[this.state.contact.length - 1].id + 1;
-    
-    this.setState({ 
-      contact: [
-        ...this.state.contact,
-        {
-          id: lastIDIndex,
-          name: this.state.name,
-          phone: this.state.phone
-        }
-      ]
-     }, () => {
-       console.log("newContact ID: " + lastIDIndex);
-     });
   }
 
   _handleChangeState = (target, value) => {
@@ -103,15 +85,18 @@ class App extends React.Component {
                 <tr>
                   <th>이름</th>
                   <th>연락처</th>
-                  <th>-</th>
+                  <th>삭제</th>
+                  <th>+</th>
                 </tr>
               </thead>
   
               <tbody>
                 {
                   <tr>
+                    <td><input value = {name} onChange = {this._handleChangeState} placeholder = "name" /></td>
+                    <td><input value = {phone} onChange = {this._handleChangeState} placeholder = "phone" /></td>
                     <td><input value = {name} onChange = {(event) => this._handleChangeState('name', event.target.value)} placeholder = "name" /></td>
-                    <td><input value = {phone} onChange = {(event) => this._handleChangeState('phone', event.target.value)} placeholder = "phone" /></td>
+                    <td><input value = {phone} onChange = {(event) => this._handleChangeState('name', event.target.value)} placeholder = "phone" /></td>
                     <td>
                       <button onClick = {() => this._handleCreateContact()}>New</button>
                     </td>
@@ -128,6 +113,7 @@ class App extends React.Component {
                     </tr>
                   ))
                   }
+                }
               </tbody>
             </table>
           </div>
