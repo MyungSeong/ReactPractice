@@ -31,7 +31,7 @@ class App extends React.Component {
         phone: '010-1234-5678'
       }
     ]
-  }
+  };
 
   /*constructor(props) {
     super(props);
@@ -52,7 +52,7 @@ class App extends React.Component {
     const newContact = this.state.contact.filter(data => data.id !== id);
     console.log("newContact: " + newContact);
     this.setState({ contact: newContact} );
-  }
+  };
 
   /*
    * Advanced Method
@@ -86,11 +86,11 @@ class App extends React.Component {
      }, () => {
        console.log("newContact ID: " + lastIDIndex);
      });
-  }
+  };
 
   _handleChangeState = (target, value) => {
     this.setState({ [target] : value });
-  }
+  };
 
   /*
    * Edit Mode
@@ -103,7 +103,7 @@ class App extends React.Component {
     });*/
 
     this.setState( prevState => ({ isEditMode: prevState.isEditMode === id ? -1 : id }) );
-  }
+  };
 
   /*
    * Edit Apply
@@ -113,7 +113,7 @@ class App extends React.Component {
     newContact[index][event.target.name] = event.target.value;
 
     this.setState({ contact: newContact });
-  }
+  };
 
   render() {
     //const contact = this.state.contact;
@@ -145,7 +145,7 @@ class App extends React.Component {
                     <td>
                       <input value = {name} onChange = {(event) => this._handleChangeState('name', event.target.value)} placeholder = "Insert Name" />
                     </td>
-                    <td colSpan = '3'></td>
+                    <td colSpan = '3'/>
                   </tr>
                 }
                 {
